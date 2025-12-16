@@ -3,10 +3,10 @@
    =================================== */
 :root {
   /* Colors */
-  --color-primary: #cd86a8;
+  --color-primary: #fefcfd;
   --color-accent: #ffffff;
   --color-text: #000000;
-  --color-light: #cd86a8;
+  --color-light: #fdfdfd;
   --color-white: #ffffff;
 
   /* Spacing */
