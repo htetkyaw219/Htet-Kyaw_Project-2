@@ -1,61 +1,257 @@
+/* ===================================
+   CSS VARIABLES (BONUS POINTS!)
+   =================================== */
+:root {
+  /* Colors */
+  --color-primary: hsl(63, 100%, 50%);
+  --color-accent: #000000;
+  --color-text: #000000;
+  --color-light: #cd86a8;
+  --color-white: #000000;
 
-/* basic responsive image css */
-img, video{
+  /* Spacing */
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+}
+
+/* ===================================
+   BASE STYLES
+   =================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  background-color: #cd86a8;
+}
+
+/* ===================================
+   HEADER
+   =================================== */
+header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* ===================================
+   MAIN CONTENT
+   =================================== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+/* ===================================
+   TYPOGRAPHY HIERARCHY
+   =================================== */
+h1 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--color-text);
+  margin: var(--spacing-lg) 0 0;
+  font-weight: 600;
+  background-color: hsl(238, 100%, 50%);
+  padding: var(--spacing-md);
+  border-radius: 8px 8px 0 0;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin: var(--spacing-sm) 0;
+  font-weight: 600;
+}
+
+.intro {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===================================
+   RESPONSIVE IMAGES & VIDEO
+   =================================== */
+img,
+video {
   max-width: 100%;
   height: auto;
 }
 
-.landmarks-grid{
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+figure {
+  margin: 0;
 }
 
-figure{ margin:0;}
-
-/* --------------------------------
-responsive video
--------------------------------- */
-
+/* Video Wrapper */
 .videoWrapper {
-	position: relative;
-	padding-top: 25px;
-	height: 0;
-  clear:both;
+  position: relative;
+  padding-top: 25px;
+  height: 0;
+  clear: both;
+  margin: var(--spacing-md) 0;
 }
 
-/* 16:9 aspect ratio wrapper */
-.videoWrapper.ratio-16-9{
-    padding-bottom: 56.25%; /* 9 ÷ 16 = .5625 which is 56.25% */
+.videoWrapper.ratio-16-9 {
+  padding-bottom: 56.25%;
 }
 
-/* 4:3 aspect ratio wrapper */
-.videoWrapper.ratio-4-3{
-    padding-bottom: 75%; /* 3 ÷ 4 = .75 which is 75% */
+.videoWrapper.ratio-4-3 {
+  padding-bottom: 75%;
 }
 
 .videoWrapper iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-
-
-
-
-
-/* ----------------------
-This just makes the text look nicer
----------------------- */
-html{font-size:18px;}
-body{
-  font-family: -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  line-height: 1.5
+/* Featured Picture */
+picture {
+  display: block;
+  margin: 0;
+  background-color: #ffffff;
+  padding: 0 var(--spacing-md);
+  padding-top: 20px;
 }
-p, li{ margin-bottom: 1rem;}
-.side-note{font-size:1.1rem; font-style: italic;max-width:90%;}
-pre{font-family: Menlo, Consolas, Monaco, "Courier New", monospace; padding:1rem;border: 1px solid #999999;}
-code{font-weight:600;}
+
+picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Featured section paragraphs */
+h2+picture+p {
+  background-color: #000000;
+  padding: var(--spacing-sm) var(--spacing-md) 0;
+  margin: 0;
+}
+
+h2+picture+p+p {
+  background-color: #000000;
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  margin: 0 0 var(--spacing-lg) 0;
+  border-radius: 0 0 8px 8px;
+}
+
+/* ===================================
+   LANDMARK CARDS - FLEXBOX (BONUS!)
+   =================================== */
+.landmarks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.landmark {
+  flex: 1 1 calc(33.333% - var(--spacing-md));
+  min-width: 250px;
+  background-color: var(--color-light);
+  padding: var(--spacing-sm);
+  border-radius: 8px;
+}
+
+.landmark figure {
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.landmark img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.landmark h3 {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===================================
+   CAPTIONS
+   =================================== */
+figcaption,
+.text-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+figcaption a,
+.text-caption a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+figcaption a:hover,
+.text-caption a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .landmark {
+    flex: 1 1 100%;
+  }
+}
