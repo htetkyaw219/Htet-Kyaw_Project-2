@@ -48,7 +48,7 @@ body {
    HEADER
    =================================== */
 header {
-  background-color: var(--color-primary);
+  background-color: #cd86a8;
   color: var(--color-accent);
   padding: var(--spacing-md);
   text-align: center;
@@ -400,4 +400,14 @@ footer p {
   font-style: italic;
   font-weight: 600;
   text-align: center;
+}
+
+@media (min-width: 684px) {
+  .landmark-page .images-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    display: block;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
