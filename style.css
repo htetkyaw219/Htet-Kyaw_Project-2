@@ -9,10 +9,19 @@
   --color-light: #fdfdfd;
   --color-white: #ffffff;
 
-  /* Spacing */
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
+  /* Spacing units */
+  --space-unit: 1rem;
+  --space-xs: calc(var(--space-unit) * 0.25);
+  --space-sm: calc(var(--space-unit) * 0.5);
+  --space-md: calc(var(--space-unit) * 1);
+  --space-lg: calc(var(--space-unit) * 1.5);
+  --space-xl: calc(var(--space-unit) * 2);
+  --space-xxl: calc(var(--space-unit) * 3);
+
+  /* Legacy spacing - mapped to new system */
+  --spacing-sm: var(--space-md);
+  --spacing-md: var(--space-lg);
+  --spacing-lg: var(--space-xl);
 }
 
 /* ===================================
@@ -68,10 +77,13 @@ main {
    =================================== */
 h1 {
   font-size: 4.5rem;
-  color: var(--color-text);
+  color: var(--color-white);
   margin: var(--spacing-lg) 0 var(--spacing-sm);
   font-weight: 700;
   line-height: 1.2;
+  background-color: hsl(238, 100%, 50%);
+  padding: var(--spacing-md);
+  border-radius: 8px 8px 0 0;
 }
 
 h2 {
@@ -87,10 +99,13 @@ h2 {
 
 h3 {
   font-size: 1.4rem;
-  color: var(--color-text);
+  color: var(--color-white);
   margin: var(--spacing-sm) 0;
   font-weight: 600;
   line-height: 1.4;
+  background-color: hsl(238, 100%, 50%);
+  padding: var(--spacing-md);
+  border-radius: 8px 8px 0 0;
 }
 
 .intro {
@@ -210,11 +225,44 @@ h2+picture+p+p {
   margin-top: var(--spacing-sm);
   margin-bottom: var(--spacing-sm);
   font-size: 1.3rem;
+  background-color: transparent;
+  color: var(--color-text);
+  padding: 0;
+  border-radius: 0;
 }
 
 .landmark p {
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+/* ===================================
+   IMAGES GRID
+   =================================== */
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+}
+
+.images-grid figure {
+  margin: 0;
+  display: block;
+}
+
+.images-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.images-grid figcaption {
+  display: block;
+  width: 100%;
+  margin: 0;
+  margin-top: 0.5rem;
 }
 
 /* ===================================
@@ -239,6 +287,31 @@ figcaption a,
 figcaption a:hover,
 .text-caption a:hover {
   text-decoration: underline;
+}
+
+/* ===================================
+   NAVIGATION BUTTONS
+   =================================== */
+.btn {
+  display: inline-block;
+  background-color: hsl(238, 100%, 50%);
+  color: var(--color-white);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: hsl(238, 100%, 40%);
+}
+
+#pagination {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
 }
 
 /* ===================================
@@ -276,4 +349,55 @@ footer p {
   h3 {
     font-size: 1.2rem;
   }
+}
+
+.landmark-page .intro {
+  padding: var(--space-sm);
+}
+
+.landmark-page .intro figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.landmark-page .intro img {
+  border-radius: 8px 8px 0 0;
+}
+
+.landmark-page .about {
+  padding: 0 var(--space-sm);
+}
+
+.landmark-page .images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  padding: 0 var(--space-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.landmark-page .images-grid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.landmark-page .images-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+
+.landmark-page figcaption {
+  position: static;
+  background-color: hsl(0, 0%, 100%);
+  color: var(--color-black);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: 0;
+  border-radius: 0 0 8px 8px;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
 }
