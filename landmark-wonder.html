@@ -10,7 +10,23 @@
 
 <body class="landmark-page" id="wonder">
     <header>
-        <div class="site-title">NYC Landmarks</div>
+        <div class="topbar">
+            <a href="index.html" class="logo">NYC Landmarks</a>
+            <button type="button" class="menu-button" aria-controls="menu" aria-expanded="false" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <nav aria-label="Primary">
+            <ul id="menu" class="menu">
+                <li><a href="landmark-liberty.html">Statue of Liberty</a></li>
+                <li><a href="landmark-empire.html">Empire State Building</a></li>
+                <li><a href="landmark-ferry.html">Staten Island Ferry</a></li>
+                <li><a href="landmark-yankee.html">Yankee Stadium</a></li>
+                <li><a href="landmark-tram.html">Roosevelt Island Tram</a></li>
+                <li><a href="landmark-wonder.html">Wonder Wheel</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -88,7 +104,7 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <nav id="pagination">
+            <nav id="pagination" aria-label="Pagination">
                 <a class="btn" rel="prev" href="landmark-tram.html">← Previous</a>
                 <a class="btn" rel="next" href="landmark-liberty.html">Next →</a>
             </nav>
@@ -98,6 +114,7 @@
     <footer>
         <p>Site by Htet Kyaw</p>
     </footer>
+    <script src="menu.js"></script>
 </body>
 
 </html>
